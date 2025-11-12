@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:football_news/screens/menu.dart';
 import 'package:football_news/screens/newslist_form.dart';
+import 'package:football_news/screens/news_entry_list.dart';
 
 class LeftDrawer extends StatelessWidget {
   const LeftDrawer({super.key});
@@ -11,9 +12,7 @@ class LeftDrawer extends StatelessWidget {
       child: ListView(
         children: [
           DrawerHeader(
-            decoration: const BoxDecoration(
-              color: Colors.blue,
-            ),
+            decoration: const BoxDecoration(color: Colors.blue),
             child: Column(
               children: [
                 const Text(
@@ -44,9 +43,7 @@ class LeftDrawer extends StatelessWidget {
             onTap: () {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(
-                  builder: (context) => MyHomePage(),
-                ),
+                MaterialPageRoute(builder: (context) => MyHomePage()),
               );
             },
           ),
@@ -56,9 +53,7 @@ class LeftDrawer extends StatelessWidget {
             onTap: () {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(
-                  builder: (context) => const NewsFormPage(),
-                ),
+                MaterialPageRoute(builder: (context) => const NewsFormPage()),
               );
             },
           ),
@@ -68,14 +63,25 @@ class LeftDrawer extends StatelessWidget {
             onTap: () {
               Navigator.pushReplacement(
                 context,
+                MaterialPageRoute(builder: (context) => MyHomePage()),
+              );
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.add_reaction_rounded),
+            title: const Text('News List'),
+            onTap: () {
+              // Route to news list page
+              Navigator.push(
+                context,
                 MaterialPageRoute(
-                  builder: (context) => MyHomePage(),
+                  builder: (context) => const NewsEntryListPage(),
                 ),
               );
             },
           ),
         ],
-      ),  
+      ),
     );
   }
 }
